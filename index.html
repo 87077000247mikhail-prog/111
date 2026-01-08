@@ -21,7 +21,6 @@ body {
     background-size: cover;
 }
 
-/* КНОПКА */
 .telegram-button {
     display: inline-flex;
     align-items: center;
@@ -51,7 +50,7 @@ body {
     position: fixed;
     right: 12px;
     bottom: 12px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.75);
     color: #fff;
     padding: 6px 12px;
     border-radius: 8px;
@@ -72,15 +71,3 @@ body {
 </div>
 
 <script>
-fetch("https://api.countapi.xyz/hit/izvestnyiobmennik.online/visits")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("visits").innerText = data.value;
-  })
-  .catch(() => {
-    document.getElementById("visits").innerText = "—";
-  });
-</script>
-
-</body>
-</html>
