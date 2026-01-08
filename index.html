@@ -18,10 +18,10 @@ body {
     background-image: url("bg.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
 }
 
-/* TELEGRAM BUTTON */
+/* КНОПКА */
 .telegram-button {
     display: inline-flex;
     align-items: center;
@@ -42,21 +42,20 @@ body {
 }
 
 .telegram-icon {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
 }
 
-/* COUNTER */
+/* СЧЁТЧИК */
 .counter {
     position: fixed;
     right: 12px;
     bottom: 12px;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.7);
     color: #fff;
     padding: 6px 12px;
     border-radius: 8px;
     font-size: 14px;
-    z-index: 10;
 }
 </style>
 </head>
@@ -64,6 +63,24 @@ body {
 <body>
 
 <a class="telegram-button" href="https://t.me/izvestnyiobmennik" target="_blank" rel="noopener">
-    <svg class="telegram-icon" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="120" cy="120" r="120" fill="#ffffff"/>
-        <path d="M179.9 69.6L152.6 181.2c-2 8.1-7.5 10.1-15.1 6.3l-41.8-30.8-20.2 19.4c-2.2 2.2-4.1 4.1-8.4 4.1l
+    <img class="telegram-icon" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="tg">
+    welcome
+</a>
+
+<div class="counter">
+    Visits: <span id="visits">0</span>
+</div>
+
+<script>
+fetch("https://api.countapi.xyz/hit/izvestnyiobmennik.online/visits")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visits").innerText = data.value;
+  })
+  .catch(() => {
+    document.getElementById("visits").innerText = "—";
+  });
+</script>
+
+</body>
+</html>
